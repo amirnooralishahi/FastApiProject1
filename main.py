@@ -1,17 +1,10 @@
-from fastapi import FastAPI,Depends,HTTPException
-from database import SessionLocal,engine
-from typing import Annotated, List
-from sqlalchemy.orm import Session
-import models
-app= FastAPI()
-models.Base.metadata.create_all(bind=engine)
 
+from database import engine, SessionLocal
+import uvicorn 
+from models import Room,Payment
 
-async def get_db(): 
-    db=SessionLocal()
-    try: 
-        yield db 
-    finally : 
-        db.close( )
-        
-db_dependency=Annotated[Session,Depends(get_db)]
+# Passenger.Base.metadata.create_all(bind=engine)
+# Payment.Base.metadata.create_all(bind=engine)
+# Room.Base.metadata.create_all(bind=engine)
+if __name__=='__main__':
+    uvicorn.run('config:app',host='0.0.0.0',port=8000,reload=True) 
