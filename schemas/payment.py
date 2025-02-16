@@ -11,3 +11,6 @@ class PaymentCreate(BaseModel):
     
 class PaymentShow(PaymentCreate):
     id:int
+    
+    class config: 
+        orm_mode=True

@@ -21,6 +21,8 @@ class UserCreatePassenger(UserBase):
     
 class UserShow(UserBase):
     id:int
+    class config: 
+        orm_mode=True
 
     
 

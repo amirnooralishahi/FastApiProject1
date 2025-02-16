@@ -20,3 +20,5 @@ class RoomCreate(RoomBase):
         
 class RoomShow(RoomBase):
     id:int
+    class config: 
+        orm_mode=True

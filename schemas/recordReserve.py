@@ -13,3 +13,6 @@ class recordReserveCreate(BaseModel) :
     
 class recordReserveShow(recordReserveCreate): 
        id: int
+       
+       class config: 
+          orm_mode=True

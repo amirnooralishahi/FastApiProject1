@@ -4,5 +4,7 @@ from datetime import datetime
 class reserationsBase(BaseModel): 
     passenger_id:int 
     DeliveryDate:datetime
-    DischargeDatee:datetime
+    DischargeDate:datetime
     Evacution:str
+    class config: 
+        orm_mode=True
