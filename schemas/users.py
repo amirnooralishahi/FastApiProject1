@@ -16,8 +16,7 @@ class UserCreatePassenger(UserBase):
     Phone:conint(ge=100000000000,le=999999999999)
     is_owner:bool
     Is_inspector:bool
-    Job_title=str
-    
+    Job_title:str 
     
 class UserShow(UserBase):
     id:int
