@@ -9,14 +9,14 @@ class Payment(Base):
     id = Column(Integer, primary_key=True)
     passenger_id = Column(Integer, ForeignKey('passenger.id'))
     room_id = Column(Integer, ForeignKey('room.id'))
-    Allpaid = Column(BigInteger)
+    all_paid = Column(BigInteger)  # تغییر نام متغیر به `snake_case`
     tuition = Column(Integer)
     debt = Column(Integer)
-    paymentDate = Column(DateTime)
+    payment_date = Column(DateTime)
 
-    passenger = relationship("passenger", back_populates="payment")
-    room = relationship("room", back_populates="payment")
-    recordreserve = relationship("RecordReserve", back_populates="payment", uselist=False,cascade='all,delete')
+    passenger = relationship("Passenger", back_populates="payment")
+    room = relationship("Room", back_populates="payment")
+    recordreserve = relationship("RecordReserve", back_populates="payment", uselist=False, cascade='all,delete')
 
     def __str__(self):
         return f'{self.tuition}-{self.debt}'

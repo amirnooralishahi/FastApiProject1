@@ -1,7 +1,9 @@
 
 from database import engine, SessionLocal
 import uvicorn 
-from models import Room,Payment
+from models import Room,Payment,Passenger,recordReserve,reservation
+reservation.Base.metadata.create_all(bind=engine)
+recordReserve.Base.metadata.create_all(bind=engine)
 
 # Passenger.Base.metadata.create_all(bind=engine)
 # Payment.Base.metadata.create_all(bind=engine)
